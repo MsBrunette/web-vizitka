@@ -29,19 +29,26 @@
         <section class="section__recommendations">
             <h3>Recommendations</h3>
             <div class="article__recommendation">
-                <article class="article__recommendation__pics_text">
+                <article class="article__recommendation__pics_text carousel fade">
                     <div class="article__recommendation__pics">
                         <img src="Views/images/recommend_1.png" alt="">
                         <img src="Views/images/recommend_2.png" alt="">
                     </div>
                     <p>Lorem ipsum dolor sit amet consectetur. Id tincidunt sed velit a. Tincidunt eget mauris ipsum libero bibendum fermentum sed mauris. Sed pharetra habitant platea facilisis sit. Nullam vitae condimentum porttitor nec sit vel aliquam vel. Tristique amet duis in consequat amet sagittis ultricies tempor. Tristique euismod mauris posuere nec. Est facilisi porta vitae arcu felis. Porttitor in commodo turpis amet aliquet.</p>
                 </article>
-                <button class="button__next_article"></button>
+                <article class="article__recommendation__pics_text carousel fade">
+                    <div class="article__recommendation__pics">
+                        <img src="Views/images/recommend_3.png" alt="">
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur. Id tincidunt sed velit a. Tincidunt eget mauris ipsum libero bibendum fermentum sed mauris.</p>
+                </article>
+                <button id="button__next_article" class="button__next_article next_article_button"></button>
             </div>
         </section>
     </main>
 
     <form class="menu__login" id="form__login" method="post">
+        <button id="button__close" type="button" class="button__close"></button>
         <label for="email"><h2>Email:</h2></label>
         <input type="email" class="input" id="email" name="email" placeholder="email" value="<?php echo $email; ?>">
         <label class="label__invalid_data" id="incorrect_email"></label>
@@ -53,11 +60,11 @@
         <!-- <label class="label__forgot_password">If you forgot your password, click 
             <a href="" id="forgot_password">here</a>.</label>
         <br><br> -->
-        <div class="text_buttons">
-            <button class="button__main" id="button_login" name="uri" value="login"><h2>Log in</h2></button>
+        <div class="text_buttons"><input id="choosed_button" hidden>
+            <button type="button" class="button__main" id="button_login"><h2>Log in</h2></button>
             <br><br>
             <p>If you aren't registered, please fill email and password and click the button below:</p><br>
-            <button class="button__main" id="button_register" name="uri" value="register"><h2>Register</h2></button>
+            <button type="button" class="button__main" id="button_register"><h2>Register</h2></button>
         </div>
         
     </form>

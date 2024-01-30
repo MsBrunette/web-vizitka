@@ -6,7 +6,7 @@
     <header class="header">
         <img class="logo_pic" src="Views/images/Logo.png" alt="logotype">
         <h1 class="logo_text">Cat Nanny</h1>
-        <button class="button__main"><h3>Log out</h3></button>
+        <form method="post" action="/projects/CatNanny/"><button class="button__main" type="submit"><h3>Log out</h3></button></form>
     </header>
 
 
@@ -60,7 +60,7 @@
                         <div class="client_data center_align">
                             <input name="uri" value="change_info" hidden>
                             <button type="button" id="button__change_client_info" class="button__main button_small"><h5>Change info</h5></button>
-                            <button type="button" id="button__save_client_info" class="button__main button_small" hidden><h5>Save info</h5></button>
+                            <button type="button" id="button__save_client_info" class="button__main" hidden><h5>Save info</h5></button>
                         </div></form>
                     
 
@@ -73,9 +73,9 @@
                             <button type="button" id="button__change_client_password" class="button__main button_small"><h5>Change password</h5></button>
 
                             <input type="text" name="email" id="input__client_email" value="<?php echo $_POST['user']['email']; ?>" class="input width_60percent" hidden>
-                            <button type="button" id="button__save_client_email" class="button__main button_small" hidden><h5>Save email</h5></button>
-                            <input type="text" name="password" id="input__client_password" class="input" class="input width_60percent" hidden>
-                            <button type="button" id="button__save_client_password" class="button__main button_small" hidden><h5>Save password</h5></button>
+                            <button type="button" id="button__save_client_email" class="button__main" hidden><h5>Save email</h5></button>
+                            <input type="password" name="password" id="input__client_password" class="input" class="input width_60percent" hidden>
+                            <button type="button" id="button__save_client_password" class="button__main" hidden><h5>Save password</h5></button>
                             
                         </div><label class="label__invalid_data" id="label__client_email_password" hidden></label>
                     </form>
@@ -131,7 +131,7 @@
                         <div class="client_data center_align">
                             <!-- <input name="uri" value="change_cat" hidden> -->
                             <button type="button" id="button__change_cat_info" class="button__main button_small"><h5>Change cat's info</h5></button>
-                            <button type="button" id="button__save_cat_info" class="button__main button_small" hidden><h5>Save cat's info</h5></button>
+                            <button type="button" id="button__save_cat_info" class="button__main" hidden><h5>Save cat's info</h5></button>
                         </div>
                     <!-- </form> -->
 
@@ -147,11 +147,11 @@
                 </section>
             </div>    
         </section><!-- ??? -->
-        <input id="adding_cat" hidden disabled value="<?php echo $_POST['adding_cat']; ?>" >
+        <input id="adding_cat" hidden value="<?php echo $_POST['adding_cat']; ?>" >
     </main>
 
     <form class="menu__new_cat" id="form__add_cat" enctype="multipart/form-data">
-
+        <button id="button__close" type="button" class="button__close"></button>
         <div class="client_data center_align">
             <h6>Add a new cat</h6>  
         </div><br><br>
@@ -159,7 +159,7 @@
         <div class="info_about_cat__with_pic">
             <div class="info_about_cat__without_pic width_35vw">
 
-                <div class="client_data">
+                <div class="client_data"><input id="show_current_cat" name="current_cat" value="" hidden>
                     <input id="user_id" name="user_id" value="<?php echo $_POST['user']['id']; ?>" hidden>
                     <label class="label__client_data"><h4>Name:</h4></label>
                     <input type="text" name="new_cat_name" id="input__new_cat_name" class="input_clientPage" value="<?php echo $_POST['new_cat_name']; ?>" placeholder="Tom">

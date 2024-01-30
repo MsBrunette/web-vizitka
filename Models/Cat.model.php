@@ -33,18 +33,4 @@ class Cat
     }
 }
 
-/*
-$u = new User;
-echo $a=$u->add_new_user("pet.owner@mail.com", "pass");
-
-$u = new User;
-$user = $u->get_user("pet.owner@mail.com");
-var_dump($user[0]["password"]);
-if ("passwd56" === $user[0]["password"]) echo "Victory";
-
-
-
-$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
-*/
-
 ?>

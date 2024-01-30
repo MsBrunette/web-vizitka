@@ -1,10 +1,5 @@
 <?php
 
-/* echo '<br>-----main-----<pre>';
-var_dump($_POST);
-echo '</pre><br><br>'; */
-/*die(); */
-
 require_once "autoloader.php";
 
 $router = new Router;

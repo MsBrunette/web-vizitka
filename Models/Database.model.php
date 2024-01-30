@@ -39,30 +39,4 @@ class Database
     }
 }
 
-
-/*
-$database = new Database;
-$pass = 'passwd56';
-$sql = "SELECT * FROM users where password = '$pass'";
-var_dump($result = $database->query($sql));
-
-
-$database = new Database;
-$mail = "john@example.com";
-$passwd = "passwdwdwd";
-
-$sql = "INSERT INTO users (email, password)
-VALUES ('$mail', '$passwd')";
-var_dump($result = $database->query($sql));
-*/
-
-
-
-/*
-print $_POST;
-$database = new Database;
-$sql = "INSERT INTO users ($_POST[0][0])
-VALUES ($_POST[0][1])";
-$database->query($sql);
-*/
 ?>

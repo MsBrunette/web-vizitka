@@ -134,6 +134,7 @@ p {
 
 .article__recommendation {
     display: flex;
+    position: relative;
     padding-right: 3vw;
 }
 
@@ -156,6 +157,13 @@ p {
     background-size: cover;
     background-position: center;
 }
+.next_article_button {
+    cursor: pointer;
+    position: absolute;
+    top: 20vh;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
 
 
 
@@ -170,6 +178,22 @@ p {
     padding: 2vh 2vw 2vh 2vw;
     background-color: #FFFFFF;
     border: 3px solid #003A02;
+}
+.button__close {
+    cursor: pointer;
+    position: absolute;
+    top: 1vh;
+    right: 0.5vw;
+    height: 2vh;
+    width: 1.7vw;
+    padding: 0;
+    margin: 0;
+    background-color: #FFFFFF;  
+    border: 0;
+    background-image: url("./images/close.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 .input {
@@ -213,7 +237,6 @@ p {
     flex-direction: column;
     align-items: center;
 }
-
 
 
 /************* ClientPage *************/
@@ -333,6 +356,18 @@ p {
     align-items: center;
 }
 
+.button_small {
+    padding: 0 1vw 0.5vh 1vw;
+    border-radius: 9px;
+    background: #F8E6FF;
+}
+
+.button_disabled {
+    cursor: not-allowed;
+    background-color: #37373747;
+    border: 1px solid #003a024c;
+}
+
 .carousel {
     position: relative;
     display: none;
@@ -378,10 +413,4 @@ p {
 
 .width_35vw {
     width: 35vw;
-}
-
-.button_small {
-    padding: 0 1vw 0.5vh 1vw;
-    border-radius: 9px;
-    background: #F8E6FF;
 }

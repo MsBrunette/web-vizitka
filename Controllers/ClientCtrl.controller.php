@@ -107,7 +107,7 @@ class ClientCtrl
         $user_id = $_POST["user_id"];
 
         $_POST['adding_cat'] = "active";
-      
+
         $user = new User;
         $user = $user->get_user_by_id($user_id);
         $cats = new Cat;
@@ -116,7 +116,7 @@ class ClientCtrl
         $_POST['user'] = $user[0];
         $_POST['cats'] = $cats;
         $_POST['uri'] = "client";
-        $_POST['error'] = $cat_id;
+        $_POST['error'] = $_POST['current_cat'];
         
         $this->route();
     }
@@ -136,10 +136,11 @@ class ClientCtrl
         $cats = new Cat;
         $cats = $cats->get_cats($user[0]["id"]);
 
+        $_POST['adding_cat'] = "clear";
         $_POST['user'] = $user[0];
         $_POST['cats'] = $cats;
         $_POST['uri'] = "client";
-        $_POST['error'] = $cat_id;
+        $_POST['error'] = $cat[0]['cat_id'];
         
         $this->route();
     }

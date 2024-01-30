@@ -11,9 +11,6 @@ class UserCtrl
     }
 
     private function start_session($user) {
-        //session_start();
-        //$_SESSION["client_id"] = $user[0]["id"];
-
         $cats = new Cat;
         $cats = $cats->get_cats($user[0]["id"]);
 

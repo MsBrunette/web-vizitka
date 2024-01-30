@@ -43,6 +43,39 @@ let button__save_cat_info = document.getElementById("button__save_cat_info");
 let button__next_cat = document.getElementById("button__next_cat");
 let button__add_cat = document.getElementById("button__add_cat");
 
+
+/************* AddNewCat *************/
+
+let form__add_cat = document.getElementById("form__add_cat");
+let form__photo_new_cat = document.getElementById("form__photo_new_cat");
+
+let adding_cat = document.getElementById("adding_cat");
+let show_current_cat = document.getElementById("show_current_cat");
+
+let input__new_cat_name = document.getElementById("input__new_cat_name");
+let input__new_cat_age = document.getElementById("input__new_cat_age");
+let input__new_cat_character = document.getElementById("input__new_cat_character");
+let input__new_cat_problems = document.getElementById("input__new_cat_problems");
+let input__new_cat_individual_requests = document.getElementById("input__new_cat_individual_requests");
+let new_cat_photo = document.getElementById("new_cat_photo");
+
+let input_new_cat_photo = document.getElementById("input_new_cat_photo");
+
+let warning__new_cat_name = document.getElementById("label__new_cat_name");
+let warning__new_cat_age = document.getElementById("label__new_cat_age");
+let warning__photo_new_cat = document.getElementById("label__photo_new_cat");
+let form__add_cat__uri = document.getElementById("form__add_cat__uri");
+let button_save_new_cat = document.getElementById("button_save_new_cat");
+let button__close = document.getElementById("button__close");
+
+input_new_cat_photo.addEventListener("change", reloadPhoto);
+input__new_cat_name.addEventListener("change", checkName);
+button_save_new_cat.addEventListener("click", saveNewCat);
+button__close.addEventListener("click", closeAddingCat);
+
+/*************************************/
+
+
 button__change_client_info.addEventListener("click", changeInfo);
 button__save_client_info.addEventListener("click", validateInfo);
 button__change_client_email.addEventListener("click", showEmail);
@@ -55,12 +88,24 @@ button__save_cat_info.addEventListener("click", validateCatInfo);
 button__next_cat.addEventListener("click", nextCat);
 button__add_cat.addEventListener("click", addNewCat);
 
+if (input__client_name.value === "") {
+    button__add_cat.disabled = true;
+    button__change_client_email.disabled = true;
+    button__change_client_password.disabled = true;
+    button__add_cat.classList.add("button_disabled");
+    button__change_client_email.classList.add("button_disabled");
+    button__change_client_password.classList.add("button_disabled");
+    changeInfo();
+}
 
 if (carousel.length <= 1)
 {
     label__button_next_cat.hidden = true;
     button__next_cat.hidden = true;
-} 
+    if (carousel.length < 1)
+        button__change_cat_info.hidden = true;
+}
+
 if (current_cat.value !== "")
 {
     for (let i=0; i<carousel.length; i++)
@@ -73,10 +118,23 @@ if (current_cat.value !== "")
             carousel[i].style.display = "none";
         }
     }
-} else {
+} else if (carousel.length > 0) {
     carousel[0].style.display = "block";
 }
 
+if (adding_cat.value === "active")
+{
+    addNewCat();
+}
+
+if (adding_cat.value === "clear")
+{
+    input__new_cat_name.value = "";
+    input__new_cat_age.value = "";
+    input__new_cat_character.value = "";
+    input__new_cat_problems.value = "";
+    input__new_cat_individual_requests.value = "";
+}
 
 function changeInfo() {
     input__client_name.disabled = false;
@@ -87,6 +145,8 @@ function changeInfo() {
     input__client_address.className = "input_clientPage";
     input__client_phone.className = "input_clientPage";
     input__client_additional_information.className = "input_clientPage full_width";
+
+    input__client_name.focus();
 
     button__save_client_info.hidden = false;
     button__change_client_info.hidden = true;
@@ -174,6 +234,7 @@ function nextCat() {
     if(id_carousel === carousel.length)
         id_carousel = 0;
     carousel[id_carousel].style.display = "block";
+    show_current_cat.value = input__cat_id[id_carousel].value;
 }
 
 function changeCatInfo () {
@@ -220,35 +281,21 @@ function addNewCat() {
     input__new_cat_name.focus();
 }
 
+
+
 /************* AddNewCat *************/
 
-let form__add_cat = document.getElementById("form__add_cat");
-let form__photo_new_cat = document.getElementById("form__photo_new_cat");
-
-let adding_cat = document.getElementById("adding_cat");
-
-let input__new_cat_name = document.getElementById("input__new_cat_name");
-let input__new_cat_age = document.getElementById("input__new_cat_age");
-let input__new_cat_character = document.getElementById("input__new_cat_character");
-let input__new_cat_problems = document.getElementById("input__new_cat_problems");
-let input__new_cat_individual_requests = document.getElementById("input__new_cat_individual_requests");
-let new_cat_photo = document.getElementById("new_cat_photo");
-
-let input_new_cat_photo = document.getElementById("input_new_cat_photo");
-
-let warning__new_cat_name = document.getElementById("label__new_cat_name");
-let warning__new_cat_age = document.getElementById("label__new_cat_age");
-let warning__photo_new_cat = document.getElementById("label__photo_new_cat");
-let form__add_cat__uri = document.getElementById("form__add_cat__uri");
-let button_save_new_cat = document.getElementById("button_save_new_cat");
-
-input_new_cat_photo.addEventListener("change", reloadPhoto);
-input__new_cat_name.addEventListener("change", checkName);
-button_save_new_cat.addEventListener("click", saveNewCat)
-
-if (adding_cat.value === "active")
-{
-    addNewCat();
+function closeAddingCat() {
+    input__new_cat_name.value = "";
+    input__new_cat_age.value = "";
+    input__new_cat_character.value = "";
+    input__new_cat_problems.value = "";
+    input__new_cat_individual_requests.value = "";
+    warning__new_cat_name.value = "";
+    warning__new_cat_age.value = "";
+    warning__photo_new_cat.value = "";
+    new_cat_photo.src = "Views/images/place_for_photo.png";
+    form__add_cat.style.display = "none";
 }
 
 function reloadPhoto() {
@@ -300,5 +347,3 @@ function saveNewCat() {
         form__add_cat.submit();
     }
 }
-
-
